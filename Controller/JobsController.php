@@ -2,7 +2,7 @@
 
 <?php
  	
-	App::uses('CakeEmail', 'Network/Email');
+App::uses('CakeEmail', 'Network/Email');
 // File: /app/Controller/JobsController.php
 class JobsController extends AppController {
     public $helpers = array('Html', 'Form');
@@ -14,7 +14,7 @@ public function admin_view() {
 
 // listing jobs
     public function index() {
-		//listing
+	//listing
         $this->set('jobs', $this->Job->find('all'));		
     }
 
@@ -42,8 +42,8 @@ public function admin_view() {
             throw new NotFoundException(__('ungültiger Job.'));
         }
 		
-		//changeing Verfuegbarkeit from number to text
-		$this->set('available', $this->availableText($job['Job']['Verfuegbarkeit']));
+	//changeing Verfuegbarkeit from number to text
+	$this->set('available', $this->availableText($job['Job']['Verfuegbarkeit']));
 		
         $this->set('job', $job);
     }
@@ -62,8 +62,8 @@ public function admin_view() {
             throw new NotFoundException(__('ungültiger Job.'));
         }
 		
-		//changeing Verfuegbarkeit from number to text
-		$this->set('available', $this->availableText($job['Job']['Verfuegbarkeit']));
+	//changeing Verfuegbarkeit from number to text
+	$this->set('available', $this->availableText($job['Job']['Verfuegbarkeit']));
 		
         $this->set('job', $job);
     }
@@ -77,23 +77,23 @@ public function getTokenID() {
 //adding jobs
 	 public function add() {
 		 
-		$this->set('TokenID', $this->getTokenID());
+	$this->set('TokenID', $this->getTokenID());
 		
         if ($this->request->is('post')) {
             $this->Job->create();
 				
             if ($this->Job->save($this->request->data)) {
-				$this->Session->setFlash('Job erstellt');
+		$this->Session->setFlash('Job erstellt');
 				
-				$recipient = $this->request->data['Job']['email'];
-				$tokenUrl = 'www.jobboerse.bplaced.net/cakephp-2.6.1/jobs/token/'.$this->request->data['Job']['TokenID'];
-				$message = 'Sie können ihren job unter '. $tokenUrl. ' bearbeiten';
+		$recipient = $this->request->data['Job']['email'];
+		$tokenUrl = 'www.jobboerse.bplaced.net/cakephp-2.6.1/jobs/token/'.$this->request->data['Job']['TokenID'];
+		$message = 'Sie können ihren job unter '. $tokenUrl. ' bearbeiten';
 				
-				$Email = new CakeEmail();
-				$Email->from(array('my@example.com' => 'Jobboerse'));
-				$Email->to($recipient);
-				$Email->subject('Ihr erstelltes Jobangebot');
-				$Email->send($message);
+		$Email = new CakeEmail();
+		$Email->from(array('my@example.com' => 'Jobboerse'));
+		$Email->to($recipient);
+		$Email->subject('Ihr erstelltes Jobangebot');
+		$Email->send($message);
 				
                 return $this->redirect(array('action' => 'index'));
 
@@ -116,8 +116,8 @@ public function edit($TokenID = null) {
     if ($this->request->is(array('job', 'put'))) {
         $this->Job->TokenID = $TokenID;
         if ($this->Job->save($this->request->data)) {
-			$this->Session->setFlash('Job geupdated');
-            return $this->redirect(array('action' => 'index'));
+		$this->Session->setFlash('Job geupdated');
+            	return $this->redirect(array('action' => 'index'));
         }
         $this->Session->setFlash('Job konnte nicht geupdated werden.');
     }
@@ -135,7 +135,7 @@ public function delete($TokenID) {
     }
 
     if ($this->Job->delete($TokenID)) {
-		$this->Session->setFlash('Job gelöscht');
+	$this->Session->setFlash('Job gelöscht');
     } else {
         $this->Session->setFlash('Job konnte nicht gelöscht werden', h($TokenID));
     }
