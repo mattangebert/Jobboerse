@@ -9,7 +9,6 @@
 		<th>gesucht ab</th>
 		<th>Arbeitsort</th>
         <th>Verfügbarkeit</th>
-		<th>Actions</th>
     </tr>
 
     <!-- looping through $jobs array, printing out job info -->
@@ -24,22 +23,7 @@
         </td>
 		<td><?php echo $job['Job']['Datum']; ?></td>
         <td><?php echo $job['Job']['Arbeitsort']; ?></td>
-		<td><?php echo $job['Job']['Verfuegbarkeit']; ?></td>
-		<td>
-			<?php
-				echo $this->Html->link(
-					'Bearbeiten',
-					array('action' => 'edit', $job['Job']['TokenID'])
-				);
-			?>
-			<?php
-				echo $this->Form->postLink(
-					'löschen',
-					array('action' => 'delete', $job['Job']['id']),
-					array('confirm' => 'bist du sicher?')
-				);
-			?>
-		</td>
+		<td><?php echo $job['Job']['Verfuegbarkeit']; ?></td>		
     </tr>
     <?php endforeach; ?>
 
