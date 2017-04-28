@@ -25,8 +25,8 @@ $siteServer = 'Server hosted by SimonGebert'
 		<div id="header">
 			<h1>
 				<?php echo $this->Html->link(
-						$siteDescription,
-						'/jobs',
+					$siteDescription,
+					'/jobs',
     					array('class' => 'button')
 					); 
 				?>
@@ -42,7 +42,7 @@ $siteServer = 'Server hosted by SimonGebert'
 			<p>
 				<?php echo $siteVersion; ?>                
 			</p>
-            <p>
+            		<p>
 				<?php echo $siteServer; ?>                
 			</p>
 		</div>
