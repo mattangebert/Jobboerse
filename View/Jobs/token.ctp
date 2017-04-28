@@ -3,8 +3,7 @@
  <?php $this->layout = 'jobboerse' ?>
 <!-- extending view -->
  <?php	
-	$this->extend('/jobs/token'); 
- 	$this->extend('/jobs/view'); 
+ 	$this->extend('view'); 
  ?>
 <!-- extended content -->
 <td>
@@ -25,4 +24,3 @@
 		
 	?>
 </td>
-
