@@ -86,7 +86,7 @@ public function getTokenID() {
 		$this->Session->setFlash('Job erstellt');
 				
 		$recipient = $this->request->data['Job']['email'];
-		$tokenUrl = 'www.jobboerse.bplaced.net/cakephp-2.6.1/jobs/token/'.$this->request->data['Job']['TokenID'];
+		$tokenUrl = 'www.jobboerse-mattan.gebert.eu/jobs/token/'.$this->request->data['Job']['TokenID'];
 		$message = 'Sie können ihren job unter '. $tokenUrl. ' bearbeiten';
 				
 		$Email = new CakeEmail();
